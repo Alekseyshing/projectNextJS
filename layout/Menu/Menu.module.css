@@ -60,3 +60,8 @@
 .thirdLevel:hover {
   color: var(--primary);
 }
+
+.secondLevelBlockOpened {
+  color: red;
+  background: blue;
+}

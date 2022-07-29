@@ -53,3 +53,4 @@ declare module '*.bmp' {
 
   export default content;
 }
+
