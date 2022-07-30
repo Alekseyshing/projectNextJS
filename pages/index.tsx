@@ -16,7 +16,7 @@ function Home({ menu }: HomeProps): JSX.Element {
   }, [counter])
 
   return (
-    <>
+    <div>
       <Htag tag='h1'>{counter}</Htag>
       <Button appearance='primary' arrow='right' onClick={() => setCounter(x => x + 1)}>Кнопка</Button>
       <Button appearance='ghost' arrow='down' onClick={() => setCounter(x => x - 1)}>Кнопка2</Button>
@@ -28,7 +28,7 @@ function Home({ menu }: HomeProps): JSX.Element {
       <Tag size='small' color='green'>green</Tag>
       <Tag size='medium' color='primary'>primary</Tag>
       <Rating rating={rating} isEditable={true} setRating={setRating}/>
-    </>
+    </div>
   );
 }
 
