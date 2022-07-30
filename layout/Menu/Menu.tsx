@@ -20,8 +20,16 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
 ]
 
 export const Menu = (): JSX.Element => {
-  const { menu, setMenu, firstCategory } = useContext(AppContext)
-  const router = useRouter()
+  const { menu, setMenu, firstCategory } = useContext(AppContext);
+  const router = useRouter();
+  const openSecondLevel = (secondCategory: string) => {
+    setMenu && setMenu(menu.map(m => {
+      if(m._id.secondCategory === secondCategory){
+        m.isOpened = !m.isOpened
+      }
+      return m
+    }))
+  }
 
   const buildFirstLevel = () => {
     return (
@@ -56,7 +64,7 @@ export const Menu = (): JSX.Element => {
             
             return (
               <div key={m._id.secondCategory}>
-                <div className={styles.secondLevel} key={generateRandomKey()}>{m._id.secondCategory}</div>
+                <div className={styles.secondLevel} key={generateRandomKey()} onClick={() => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</div>
                 <div className={cn(styles.secondLevelBlock, {
                   [styles.secondLevelBlockOpened]: m.isOpened 
                 })}>
@@ -71,12 +79,15 @@ export const Menu = (): JSX.Element => {
   }
 
   const buildThirdLevel = (pages: PageItem[], route: string) => {
+
+    
+    
     return (
       pages.map(p => (
         <>
           <Link href={`/${route}/${p.alias}}`} key={generateRandomKey()}>
             <a key={p._id} className={cn(styles.thirdLevel, {
-              [styles.thirdLevelActive]: false
+              [styles.thirdLevelActive]: `/${route}/${p.alias}}` === router.asPath
             })}>
               {p.category}
             </a>

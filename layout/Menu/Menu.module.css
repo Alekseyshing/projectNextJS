@@ -38,8 +38,8 @@
   border-left: 1px solid #DFDFDF;
 }
 
-.secondBlockOpened:last-child {
-  margin-bottom: 20px;
+.secondLevelBlock {
+  display: none;
 }
 
 .thirdLevel {
@@ -62,6 +62,13 @@
 }
 
 .secondLevelBlockOpened {
-  color: red;
-  background: blue;
+  display: block;
+}
+
+.secondBlockOpened:last-child {
+  margin-bottom: 20px;
+}
+
+.thirdLevelActive {
+  background: red;
 }
