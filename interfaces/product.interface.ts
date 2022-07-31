@@ -1,5 +1,3 @@
-
-
 export interface ProductCharacteristic {
   name: string;
   value: string;
