@@ -45,7 +45,7 @@ export const Menu = (): JSX.Element => {
 
   const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
     return (
-      <div className={styles.secondBlock} key={generateRandomKey()}>
+      <div className={styles.secondBlock}>
           {menu?.map(m => {    
             if (m.pages.map(p => p.alias).includes(router.asPath.split('/')[2]?.split('%')[0])) {              
               m.isOpened = true;
@@ -72,15 +72,15 @@ export const Menu = (): JSX.Element => {
     
     return (
       pages.map(p => (
-        <>
-          <Link href={`/${route}/${p.alias}}`} key={generateRandomKey()}>
+        <div key={generateRandomKey()}>
+          <Link href={`/${route}/${p.alias}}`} >
             <a key={p._id} className={cn(styles.thirdLevel, {
               [styles.thirdLevelActive]: `/${route}/${p.alias}}` === router.asPath
             })}>
               {p.category}
             </a>
           </Link>
-        </>
+        </div>
       ))
     )
   }
