@@ -12,3 +12,5 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
   { route: 'services', name: 'Сервисы', icon: <ServicesIcon />, id: TopLevelCategory.Services, key: generateRandomKey() },
   { route: 'products', name: 'Продукты', icon: <ProductsIcon />, id: TopLevelCategory.Products, key: generateRandomKey() },
 ]
+
+export const priceRu = (price: number): string => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ').concat(' ₽');
