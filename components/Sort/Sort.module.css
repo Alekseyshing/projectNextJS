@@ -25,6 +25,11 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.sort span:hover {
+  color: var(--primary);
 }
 
 .sort span:not(.active) {
