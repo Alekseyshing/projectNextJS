@@ -5,8 +5,9 @@ import { Card } from "../Card/Card";
 import { Rating } from "../Rating/Rating";
 import { Tag } from "../Tag/Tag";
 import { Button } from "../Button/Button";
-import { priceRu } from "../../helpers/helpers";
+import { priceRu, devlOfNum } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider";
+
 
 
 export const Product = ({ product, children, className, ...props }: ProductProps): JSX.Element => {
@@ -28,10 +29,18 @@ export const Product = ({ product, children, className, ...props }: ProductProps
       <div className={styles.tags}>{product?.categories.map(c => <Tag key={c} color="ghost">{c}</Tag>)}</div>
       <div className={styles.priceTitle}>цена</div>
       <div className={styles.creditTitle}>кредит</div>
-      <div className={styles.rateTitle}>{product?.reviewCount} отзывов</div>
+      <div className={styles.rateTitle}>{product?.reviewCount} {devlOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
       <Divider className={styles.hr}/>
       <div className={styles.description}>{product?.description}</div>
-      <div className={styles.feature}>фичи</div>
+      <div className={styles.feature}>
+        {product?.characteristics.map(c => (
+          <div className={styles.characteristics} key={c.name}>
+            <span className={styles.characteristicsName}>{c.name}</span>
+            <span className={styles.characteristicsDots}></span>
+            <span className={styles.characteristicsValue}>{c.value}</span>
+          </div>
+        ))}
+      </div>
       <div className={styles.advBlock}>
         {product?.advantages && <div className={styles.advantages}>
           <div className={styles.advTitle}>Преимущства</div>
@@ -49,4 +58,8 @@ export const Product = ({ product, children, className, ...props }: ProductProps
       </div>
     </Card>
   )
+}
+
+function declOfNum(): import("react").ReactNode {
+  throw new Error("Function not implemented.");
 }
