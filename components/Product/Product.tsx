@@ -7,6 +7,7 @@ import { Tag } from "../Tag/Tag";
 import { Button } from "../Button/Button";
 import { priceRu, devlOfNum } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider";
+import Image from "next/image"
 
 
 
@@ -14,7 +15,14 @@ export const Product = ({ product, children, className, ...props }: ProductProps
 
   return (
     <Card className={styles.product}>
-      <div className={styles.logo}><img src={process.env.NEXT_PUBLIC_DOMAIN + product?.image} alt={product?.title} /></div>
+      <div className={styles.logo}>
+        <Image 
+          src={process.env.NEXT_PUBLIC_DOMAIN + product?.image}
+          alt={product?.title}
+          width={70}
+          height={70}
+        />
+      </div>
       <div className={styles.title}>{product?.title}</div>
       <div className={styles.price}>
         {priceRu(product?.price)}
