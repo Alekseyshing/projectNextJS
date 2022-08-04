@@ -68,8 +68,6 @@ export const Menu = (): JSX.Element => {
 
   const buildThirdLevel = (pages: PageItem[], route: string) => {
 
-    
-    
     return (
       pages.map(p => (
         <div key={generateRandomKey()}>
