@@ -1,7 +1,7 @@
 .product {
   display: grid;
   grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px)  [middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end] ;
-  margin-bottom: 30px;
+  margin-top: 30px;
   padding: 30px;
 }
 
@@ -26,7 +26,6 @@
 
 .rating, .rateTitle {
   grid-column: ratestart / end;
-  white-space: nowrap;
 }
 
 .hr, .description, .actions {
@@ -140,6 +139,19 @@
   margin-bottom: 5px;
 }
 
+.closed {
+  overflow: hidden;
+  max-height: 0;
+  padding: 0;
+}
+
+.opened {
+  max-height: auto;
+  padding: 30px;
+}
+
+
+
 @media screen and (max-width: 1320px) {
   .product {
     grid-template-columns: 70px  30px auto 40px auto 40px 1fr;
@@ -148,6 +160,7 @@
     "logo . tags tags tags tags tags"
     "price price price . credit . rating"
     "priceTitle priceTitle priceTitle . creditTitle . rateTitle"
+    /* "rating rating rating rating rating rateTitle rateTitle" */
     "hr hr hr hr hr hr hr"
     "description description description description description description description"
     "feature feature feature feature feature feature feature"
@@ -268,12 +281,3 @@
 }
 
 
-/* @media screen and (max-width: 356px) {
-  .detailsButton {
-    margin-bottom: 15px;
-  }
-
-  .reviewButton {
-    margin-left: 0;
-  }
-} */
