@@ -5,7 +5,7 @@ import { Footer } from "./Footer/Footer";
 import React, { FunctionComponent } from "react";
 import styles from './Layout.module.css';
 import { AppContextProvider, IAppContext } from "../context/app.context";
-import { generateRandomKey } from "../generateRandomKey";
+import { Up } from "../components";
 
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
@@ -17,6 +17,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         {children}
       </main>
       <Footer className={styles.footer} />
+      <Up />
     </div>
   )
 }
