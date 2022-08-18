@@ -26,6 +26,7 @@ export const Product = motion(forwardRef(({ product, children, className, ...pro
       behavior: 'smooth',
       block: 'start'
     })
+    reviewRef.current?.focus()
   }
 
   const variants = {
@@ -101,14 +102,14 @@ export const Product = motion(forwardRef(({ product, children, className, ...pro
         </div>
       </Card>
       <motion.div animate={isReviewOpened ? 'visible' : 'hidden'} variants={variants} initial='hidden'>
-        <Card color="blue" className={styles.reviews} ref={reviewRef}>
+        <Card color="blue" className={styles.reviews} ref={reviewRef} tabIndex={isReviewOpened ? 0 : -1}>
           {product?.reviews?.map(r => (
             <div key={r._id} >
               <Review review={r}></Review>
               <Divider></Divider>
             </div>
           ))}
-          <ReviewForm productId={product._id}></ReviewForm>
+          <ReviewForm productId={product._id} isOpened={isReviewOpened}></ReviewForm>
         </Card>
       </motion.div>
     </div>
