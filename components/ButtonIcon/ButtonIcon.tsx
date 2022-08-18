@@ -13,8 +13,8 @@ export const ButtonIcon = ({ appearance, icon, className, ...props }: ButtonIcon
         [styles.white]: appearance === 'white'
       })}
       {...props}
-      >
-        <IconComp/>
+    >
+      <IconComp />
     </button>
   )
 }
