@@ -35,7 +35,8 @@
     grid-template-areas: 
         "header"
         "body"
-        "footer"
+        "footer";
+    gap: 10px
   }
 
   .sidebar {
