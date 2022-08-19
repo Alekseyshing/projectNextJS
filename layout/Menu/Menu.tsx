@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { generateRandomKey } from '../../generateRandomKey';
 import { useRouter } from 'next/router';
 import { firstLevelMenu } from '../../helpers/helpers';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 
 export const Menu = (): JSX.Element => {
@@ -25,10 +25,12 @@ export const Menu = (): JSX.Element => {
     }))
   }
 
+  const shouldReduceMotion = useReducedMotion()
+
   const variants = {
     visible: {
       marginBottom: 20,
-      transition: {
+      transition: shouldReduceMotion ? {} : {
         when: 'beforeChildren',
         staggerChildren: 0.1
       }
@@ -44,7 +46,7 @@ export const Menu = (): JSX.Element => {
       height: 29,
     },
     hidden: {
-      opacity: 0,
+      opacity: shouldReduceMotion ? 1 : 0,
       height: 0
     }
   }
@@ -55,6 +57,8 @@ export const Menu = (): JSX.Element => {
       openSecondLevel(secondCategory)
     }
   }
+
+
 
   const buildFirstLevel = () => {
     return (
