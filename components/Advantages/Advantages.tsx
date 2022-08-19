@@ -7,8 +7,6 @@ import {AdvantagesProps} from "./Advantages.props"
 import CheckIcon from "./check.svg"
 
 export const Advantages = ({ advantages }: AdvantagesProps): JSX.Element => {
-  console.log(advantages);
-  
 
   return (
     <>
