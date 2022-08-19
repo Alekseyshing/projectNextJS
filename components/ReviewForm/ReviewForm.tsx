@@ -89,16 +89,28 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
-      {isSuccess && <div className={cn(styles.panel, styles.success)}>
+      {isSuccess && <div className={cn(styles.panel, styles.success)} role="alert">
         <div className={styles.successTitle}>Ваш отзыв отправлен</div>
         <div>
           Спасибо, Ваш отзыв будет опубликован после проверки.
         </div>
-        <CloseIcon className={styles.close} onClick={() => setIsSuccess(false)} />
+        <button
+          onClick={() => setIsSuccess(false)}
+          className={styles.close}
+          aria-label="Закрыть оповещение"
+        >
+          <CloseIcon />
+        </button>
       </div>}
-      {error && <div className={cn(styles.panel, styles.error)}>
+      {error && <div className={cn(styles.panel, styles.error)} role="alert">
         Что-то пошло не так, попробуйте обновить страницу
-        <CloseIcon className={styles.close} onClick={() => setIsError(undefined)} />
+        <button
+          onClick={() => setIsError(undefined)}
+          className={styles.close}
+          aria-label="Закрыть оповещение"
+        >
+          <CloseIcon />
+        </button>
       </div>}
     </form>
 
