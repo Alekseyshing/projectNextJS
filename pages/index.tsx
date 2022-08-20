@@ -8,7 +8,8 @@ import { API } from '../helpers/api';
 
 function Home({ menu }: HomeProps): JSX.Element {
   const [counter, setCounter] = useState<number>(0);
-  const [rating, setRating] = useState<number>(4)
+  const [rating, setRating] = useState<number>(4);
+  
   useEffect(() => {
     console.log('Counter ' + counter);
     return function cleanup(){
